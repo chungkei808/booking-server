@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>預約表單 | 拆拖櫃服務</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('images/web-image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: "Microsoft JhengHei", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+    /* =========================
+       頂部導航列設定
+       ========================= */
+
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.96) !important;
+        padding: 12px 0;
+    }
+
+    /* 覆寫原本 .container，避免導航列變成卡片 */
+    .navbar > .container {
+        background-color: transparent;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 導航選單置中 */
+    .navbar-collapse {
+        flex-grow: 0;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* 每個導航項目的按鈕效果 */
+    .navbar .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 15px;
+        color: #2c3e50;
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid #d6e4ec;
+        border-radius: 7px;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* 滑鼠移到按鈕時 */
+    .navbar .nav-link:hover {
+        color: #ffffff;
+        background-color: #3498db;
+        border-color: #3498db;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(52, 152, 219, 0.30);
+    }
+
+    /* 點擊時 */
+    .navbar .nav-link:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    /* 首頁目前所在按鈕 */
+    .navbar .nav-link.active {
+        color: #ffffff;
+        background-color: #2c3e50;
+        border-color: #2c3e50;
+        font-weight: bold;
+    }
+
+    .navbar .nav-link.active:hover {
+        color: #ffffff;
+        background-color: #34495e;
+        border-color: #34495e;
+    }
+
+    @media (max-width: 991.98px) {
+        .navbar > .container {
+            justify-content: space-between;
+        }
+
+        .navbar-collapse {
+            width: 100%;
+        }
+
+        .navbar-nav {
+            padding-top: 12px;
+            align-items: stretch;
+        }
+
+        .navbar .nav-link {
+            width: 100%;
+        }
+    }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            font-size: 2em;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+            font-size: 1.4em;
+            border-left: 4px solid #3498db;
+            padding-left: 12px;
+        }
+
+        p {
+            margin: 12px 0;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #2c3e50, #3498db);
+            margin: 25px 0;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+      <div class="navbar-nav">
+        <a class="nav-link" href="index.html">創基物流公司</a>
+        <a class="nav-link" href="about_us.html">關於我們</a>        <a class="nav-link" href="booking.html">預約</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+        <a class="nav-link" href="knowledge.html">物流小智識</a>
+        <a class="nav-link" href="terms.html">條款或注意事項</a>
+		<a class="nav-link" href="contact.html">聯絡我們</a>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+<div class="container" style="max-width:600px;">
+  <h2 class="mb-4">預約表單</h2>
+  <form id="bookingForm">
+
+    <div class="section-title">聯絡資料</div>
+
+    <div class="mb-3">
+      <label class="form-label">聯絡人</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">電話</label>
+      <input type="tel" class="form-control" id="phone" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">日期</label>
+      <input type="date" class="form-control" id="date" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">時間</label>
+      <input type="time" class="form-control" id="time" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">地址</label>
+      <input type="text" class="form-control" id="address" required>
+    </div>
+
+    <div class="section-title">需要的服務</div>
+
+    <div class="form-check mb-2">
+      <input class="form-check-input" type="checkbox" id="chkTowing">
+      <label class="form-check-label" for="chkTowing">拖櫃</label>
+    </div>
+    <div id="towingOptions" class="sub-option mb-3 hidden">
+      <select class="form-select" id="towingSize">
+        <option value="">請選擇櫃型</option>
+        <option value="20'">20'</option>
+        <option value="40'">40'</option>
+        <option value="40HQ">40HQ</option>
+      </select>
+    </div>
+
+    <div class="form-check mb-2">
+      <input class="form-check-input" type="checkbox" id="chkUnpack">
+      <label class="form-check-label" for="chkUnpack">拆櫃</label>
+    </div>
+    <div id="unpackOptions" class="sub-option mb-3 hidden">
+      <p class="mb-1">有沒有工具提供：</p>
+      <div class="form-check mb-1">
+        <input class="form-check-input" type="checkbox" id="chkPlatform">
+        <label class="form-check-label" for="chkPlatform">台位</label>
+      </div>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" id="chkJack">
+        <label class="form-check-label" for="chkJack">唧車</label>
+      </div>
+      <div class="mb-2">
+        <label class="form-label">其他</label>
+        <input type="text" class="form-control" id="unpackOther">
+      </div>
+    </div>
+
+    <div class="section-title">Remarks</div>
+
+    <div class="form-check mb-2">
+      <input class="form-check-input" type="checkbox" id="chkRemark1">
+      <label class="form-check-label" for="chkRemark1">40HQ 不能進入大廈 (在大廈外拆)</label>
+    </div>
+
+    <div class="form-check mb-2">
+      <input class="form-check-input" type="checkbox" id="chkRemark2">
+      <label class="form-check-label" for="chkRemark2">貨物過大 (任何長闊高一邊超過兩米)</label>
+    </div>
+
+    <div class="form-check mb-2">
+      <input class="form-check-input" type="checkbox" id="chkRemark3">
+      <label class="form-check-label" for="chkRemark3">貨物不能進lift (需拆板)</label>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">其他</label>
+      <input type="text" class="form-control" id="remarkOther">
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mt-3">提交預訂</button>
+  </form>
+
+  <div id="msg" class="mt-3"></div>
+
+  <div class="contact-box">
+    <p class="mb-1">如有查詢，請聯絡張先生 / 林先生：</p>
+    <p class="mb-1">WhatsApp: 12345678</p>
+    <p class="mb-1">或</p>
+    <p class="mb-1">Email: <a href="mailto:xxx@gmail.com">xxx@gmail.com</a></p>
+    <p class="mb-0 text-muted">（收到訊息後，我們會盡快回覆。）</p>
+  </div>
+
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById('chkTowing').addEventListener('change', function(){
+  document.getElementById('towingOptions').classList.toggle('hidden', !this.checked);
+});
+
+document.getElementById('chkUnpack').addEventListener('change', function(){
+  document.getElementById('unpackOptions').classList.toggle('hidden', !this.checked);
+});
+
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const booking = {
+    id: Date.now().toString(),
+    name: document.getElementById('name').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    date: document.getElementById('date').value,
+    time: document.getElementById('time').value,
+    address: document.getElementById('address').value,
+
+    towing: document.getElementById('chkTowing').checked,
+    towingSize: document.getElementById('chkTowing').checked ? document.getElementById('towingSize').value : '',
+
+    unpack: document.getElementById('chkUnpack').checked,
+    unpackPlatform: document.getElementById('chkUnpack').checked ? document.getElementById('chkPlatform').checked : false,
+    unpackJack: document.getElementById('chkUnpack').checked ? document.getElementById('chkJack').checked : false,
+    unpackOther: document.getElementById('chkUnpack').checked ? document.getElementById('unpackOther').value : '',
+
+    remark1: document.getElementById('chkRemark1').checked,
+    remark2: document.getElementById('chkRemark2').checked,
+    remark3: document.getElementById('chkRemark3').checked,
+    remarkOther: document.getElementById('remarkOther').value
+  };
+
+  const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+  bookings.push(booking);
+  localStorage.setItem('bookings', JSON.stringify(bookings));
+
+  document.getElementById('msg').innerHTML =
+    '<div class="alert alert-success">預訂成功！</div>';
+  document.getElementById('bookingForm').reset();
+  document.getElementById('towingOptions').classList.add('hidden');
+  document.getElementById('unpackOptions').classList.add('hidden');
+});
+</script>
+</body>
+</html>

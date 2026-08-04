@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們 | 拆拖櫃服務</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('images/web-image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: "Microsoft JhengHei", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+    /* =========================
+       頂部導航列設定
+       ========================= */
+
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.96) !important;
+        padding: 12px 0;
+    }
+
+    /* 覆寫原本 .container，避免導航列變成卡片 */
+    .navbar > .container {
+        background-color: transparent;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 導航選單置中 */
+    .navbar-collapse {
+        flex-grow: 0;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* 每個導航項目的按鈕效果 */
+    .navbar .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 15px;
+        color: #2c3e50;
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid #d6e4ec;
+        border-radius: 7px;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* 滑鼠移到按鈕時 */
+    .navbar .nav-link:hover {
+        color: #ffffff;
+        background-color: #3498db;
+        border-color: #3498db;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(52, 152, 219, 0.30);
+    }
+
+    /* 點擊時 */
+    .navbar .nav-link:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    /* 首頁目前所在按鈕 */
+    .navbar .nav-link.active {
+        color: #ffffff;
+        background-color: #2c3e50;
+        border-color: #2c3e50;
+        font-weight: bold;
+    }
+
+    .navbar .nav-link.active:hover {
+        color: #ffffff;
+        background-color: #34495e;
+        border-color: #34495e;
+    }
+
+    @media (max-width: 991.98px) {
+        .navbar > .container {
+            justify-content: space-between;
+        }
+
+        .navbar-collapse {
+            width: 100%;
+        }
+
+        .navbar-nav {
+            padding-top: 12px;
+            align-items: stretch;
+        }
+
+        .navbar .nav-link {
+            width: 100%;
+        }
+    }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            font-size: 2em;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+            font-size: 1.4em;
+            border-left: 4px solid #3498db;
+            padding-left: 12px;
+        }
+
+        p {
+            margin: 12px 0;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #2c3e50, #3498db);
+            margin: 25px 0;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+      <div class="navbar-nav">
+        <a class="nav-link" href="index.html">創基物流公司</a>
+        <a class="nav-link" href="about_us.html">關於我們</a>        <a class="nav-link" href="booking.html">預約</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+        <a class="nav-link" href="knowledge.html">物流小智識</a>
+        <a class="nav-link" href="terms.html">條款或注意事項</a>
+		<a class="nav-link" href="contact.html">聯絡我們</a>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container">
+        <h1>關於我們</h1>
+        <hr class="divider">
+
+        <h2>我們的背景</h2>
+        <p>我們擁有超過 10 年的物流相關經驗，專注為客戶提供可靠的拆櫃及拖櫃服務，並可按客戶需要協調其他物流安排，讓客戶在貨櫃、搬運及交付安排上更放心。</p>
+
+        <h2>我們的主要服務</h2>
+        <ul>
+            <li>拖櫃服務（常見櫃型包括 20'GP、40'GP、40'HQ）</li>
+            <li>拆櫃服務</li>
+            <li>如需其他物流服務，可另外商議，我們會盡量提供合適安排</li>
+        </ul>
+
+        <h2>服務地區及合作方式</h2>
+        <p>我們以香港地區客戶為主，服務涉及不同類型的貨櫃處理及現場安排；如屬其他地區或有特別需求，亦歡迎先與我們聯絡，再作進一步商討。</p>
+        <p>每個項目都會根據現場環境、貨櫃類型、貨物特性及時間安排等，與客戶確認清楚細節後才正式進行。</p>
+
+        <h2>我們的工作承諾</h2>
+        <ul>
+            <li>收到查詢後盡快回覆，協助客戶了解安排及預訂流程</li>
+            <li>事前確認清楚地點、時間、櫃型及貨物狀況</li>
+            <li>提供實際可行的建議，例如台位、唧車或拆板等工具安排（如適用）</li>
+            <li>重視安全及效率，讓客戶能更放心交託貨物處理</li>
+        </ul>
+
+        <hr class="divider">
+    </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

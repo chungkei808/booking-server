@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>預訂管理後台</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+  body { background-color: #f8f9fa; }
+  .job-card { margin-bottom: 12px; }
+  .job-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 12px 16px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+  }
+  .job-header:hover { background-color: #f1f3f5; }
+  .job-header .arrow { transition: transform 0.2s; }
+  .job-header.expanded .arrow { transform: rotate(90deg); }
+  .job-detail {
+    border: 1px solid #dee2e6;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 16px;
+    background-color: #fff;
+  }
+  .detail-row { margin-bottom: 6px; }
+  .detail-label { font-weight: bold; display: inline-block; width: 110px; }
+  .empty-msg { color: #6c757d; text-align: center; padding: 40px 0; }
+</style>
+</head>
+<body>
+<div class="container mt-5" style="max-width:700px;">
+
+  <div id="loginBox" style="max-width:400px;">
+    <h2>管理員登入</h2>
+    <div class="mb-3">
+      <label class="form-label">帳號</label>
+      <input type="text" class="form-control" id="user">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">密碼</label>
+      <input type="password" class="form-control" id="pass">
+    </div>
+    <button class="btn btn-primary" onclick="login()">登入</button>
+    <div id="loginMsg" class="mt-2 text-danger"></div>
+  </div>
+
+  <div id="adminBox" style="display:none;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="mb-0">預訂管理後台</h2>
+      <button class="btn btn-secondary btn-sm" onclick="logout()">登出</button>
+    </div>
+    <div id="jobList"></div>
+  </div>
+
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "123456";
+
+function login() {
+  const u = document.getElementById('user').value;
+  const p = document.getElementById('pass').value;
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    sessionStorage.setItem('loggedIn', 'true');
+    showAdmin();
+  } else {
+    document.getElementById('loginMsg').innerText = '帳號或密碼錯誤';
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('loggedIn');
+  location.reload();
+}
+
+function showAdmin() {
+  document.getElementById('loginBox').style.display = 'none';
+  document.getElementById('adminBox').style.display = 'block';
+  renderBookings();
+}
+
+function toggleDetail(id) {
+  const detail = document.getElementById('detail-' + id);
+  const header = document.getElementById('header-' + id);
+  const isOpen = detail.style.display === 'block';
+  detail.style.display = isOpen ? 'none' : 'block';
+  header.classList.toggle('expanded', !isOpen);
+}
+
+function serviceSummary(b) {
+  const parts = [];
+  if (b.towing) parts.push('拖櫃');
+  if (b.unpack) parts.push('拆櫃');
+  return parts.length ? parts.join(' / ') : '未選擇服務';
+}
+
+function renderBookings() {
+  const bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+  const list = document.getElementById('jobList');
+
+  if (bookings.length === 0) {
+    list.innerHTML = '<div class="empty-msg">目前沒有預訂記錄</div>';
+    return;
+  }
+
+  list.innerHTML = bookings.map(b => `
+    <div class="job-card">
+      <div class="job-header" id="header-${b.id}" onclick="toggleDetail('${b.id}')">
+        <div>
+          <strong>${b.name || '(未填寫聯絡人)'}</strong>
+          <span class="text-muted ms-2">${b.date || ''} ${b.time || ''} · ${serviceSummary(b)}</span>
+        </div>
+        <span class="arrow">▶</span>
+      </div>
+      <div class="job-detail" id="detail-${b.id}" style="display:none;">
+
+        <div class="detail-row"><span class="detail-label">聯絡人：</span>${b.name || '-'}</div>
+        <div class="detail-row"><span class="detail-label">電話：</span>${b.phone || '-'}</div>
+        <div class="detail-row"><span class="detail-label">Email：</span>${b.email || '-'}</div>
+        <div class="detail-row"><span class="detail-label">日期：</span>${b.date || '-'}</div>
+        <div class="detail-row"><span class="detail-label">時間：</span>${b.time || '-'}</div>
+        <div class="detail-row"><span class="detail-label">地址：</span>${b.address || '-'}</div>
+
+        <hr>
+        <div class="detail-row"><span class="detail-label">拖櫃：</span>${b.towing ? ('是 (' + (b.towingSize || '未選擇櫃型') + ')') : '否'}</div>
+        <div class="detail-row"><span class="detail-label">拆櫃：</span>${b.unpack ? '是' : '否'}</div>
+        ${b.unpack ? `
+        <div class="detail-row"><span class="detail-label">　台位：</span>${b.unpackPlatform ? '有' : '沒有'}</div>
+        <div class="detail-row"><span class="detail-label">　唧車：</span>${b.unpackJack ? '有' : '沒有'}</div>
+        <div class="detail-row"><span class="detail-label">　其他：</span>${b.unpackOther || '-'}</div>
+        ` : ''}
+
+        <hr>
+        <div class="detail-row"><span class="detail-label">Remarks：</span></div>
+        <div class="detail-row">- 40HQ不能進入大廈：${b.remark1 ? '是' : '否'}</div>
+        <div class="detail-row">- 貨物過大：${b.remark2 ? '是' : '否'}</div>
+        <div class="detail-row">- 貨物不能進lift：${b.remark3 ? '是' : '否'}</div>
+        <div class="detail-row">- 其他：${b.remarkOther || '-'}</div>
+
+        <button class="btn btn-sm btn-danger mt-3" onclick="deleteBooking('${b.id}')">刪除此Job</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function deleteBooking(id) {
+  if (!confirm('確定要刪除此預訂記錄嗎？')) return;
+  let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+  bookings = bookings.filter(b => b.id !== id);
+  localStorage.setItem('bookings', JSON.stringify(bookings));
+  renderBookings();
+}
+
+if (sessionStorage.getItem('loggedIn') === 'true') {
+  showAdmin();
+}
+</script>
+</body>
+</html>

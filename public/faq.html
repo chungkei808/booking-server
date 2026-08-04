@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>FAQ 常見問題 | 拆拖櫃服務</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('images/web-image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: "Microsoft JhengHei", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+    /* =========================
+       頂部導航列設定
+       ========================= */
+
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.96) !important;
+        padding: 12px 0;
+    }
+
+    /* 覆寫原本 .container，避免導航列變成卡片 */
+    .navbar > .container {
+        background-color: transparent;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 導航選單置中 */
+    .navbar-collapse {
+        flex-grow: 0;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* 每個導航項目的按鈕效果 */
+    .navbar .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 15px;
+        color: #2c3e50;
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid #d6e4ec;
+        border-radius: 7px;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* 滑鼠移到按鈕時 */
+    .navbar .nav-link:hover {
+        color: #ffffff;
+        background-color: #3498db;
+        border-color: #3498db;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(52, 152, 219, 0.30);
+    }
+
+    /* 點擊時 */
+    .navbar .nav-link:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    /* 首頁目前所在按鈕 */
+    .navbar .nav-link.active {
+        color: #ffffff;
+        background-color: #2c3e50;
+        border-color: #2c3e50;
+        font-weight: bold;
+    }
+
+    .navbar .nav-link.active:hover {
+        color: #ffffff;
+        background-color: #34495e;
+        border-color: #34495e;
+    }
+
+    @media (max-width: 991.98px) {
+        .navbar > .container {
+            justify-content: space-between;
+        }
+
+        .navbar-collapse {
+            width: 100%;
+        }
+
+        .navbar-nav {
+            padding-top: 12px;
+            align-items: stretch;
+        }
+
+        .navbar .nav-link {
+            width: 100%;
+        }
+    }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            font-size: 2em;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+            font-size: 1.4em;
+            border-left: 4px solid #3498db;
+            padding-left: 12px;
+        }
+
+        p {
+            margin: 12px 0;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, #3498db, #2c3e50, #3498db);
+            margin: 25px 0;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+      <div class="navbar-nav">
+        <a class="nav-link" href="index.html">創基物流公司</a>
+        <a class="nav-link" href="about_us.html">關於我們</a>        <a class="nav-link" href="booking.html">預約</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+        <a class="nav-link" href="knowledge.html">物流小智識</a>
+        <a class="nav-link" href="terms.html">條款或注意事項</a>
+		<a class="nav-link" href="contact.html">聯絡我們</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="container" style="max-width:700px;">
+  <h2 class="mb-4">常見問題 FAQ</h2>
+  <div class="accordion" id="faqAccordion">
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+          40HQ貨櫃可以進入大廈嗎？
+        </button>
+      </h2>
+      <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          40HQ貨櫃車體積較大，部分大廈因入口高度或轉彎半徑限制無法直接駛入，因應情況，我們會安排矮架貨櫃拖架，或在其他地方拆櫃，再用嚬車送貨。請在預訂時註明大廈是否有相關限制，方便我們提前安排合適的拆卸方案。
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+          貨物尺寸過大（超過兩米）可以處理嗎？
+        </button>
+      </h2>
+      <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          可以。如果貨物的長、闊或高任何一邊超過兩米，建議在預訂表單的Remarks部分勾選「貨物過大」，我們會根據實際尺寸安排合適的搬運工具及人手，確保拆拖櫃過程順利進行。但要留意大廈的貨𨋢能否放進貨物。
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+          貨物太大不能放進貨𨋢怎麼辦？
+        </button>
+      </h2>
+      <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          若貨物體積無法進入電梯，我們可提供拆板服務(如貨物可拆)，將貨物拆至合適尺寸後再分批運送，請在預訂時勾選「貨物不能進𨋢，讓我們提前準備所需工具及安排足夠時間。
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+          拆櫃時可以唧車及卡板等工具嗎？
+        </button>
+      </h2>
+      <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          可以，我們可以提供唧車及卡板等拆櫃工具，請在預訂表單的「拆櫃」選項中勾選所需工具，若有其他特殊工具需求，可在「其他」欄位詳細說明，我們會提前準備。
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+          拖櫃服務支援哪些貨櫃尺寸？
+        </button>
+      </h2>
+      <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          我們的拖櫃服務支援20'、40'及40HQ三種常見貨櫃尺寸，可根據您的貨物需求選擇合適的櫃型，預訂時只需在表單中勾選「拖櫃」並選擇相應尺寸即可。
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+          提交預訂後多久會收到回覆？
+        </button>
+      </h2>
+      <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          我們收到您的預訂訊息後，會盡快透過WhatsApp或Email與您聯絡確認詳情及報價，一般會在當日或最遲下一個工作日內回覆。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

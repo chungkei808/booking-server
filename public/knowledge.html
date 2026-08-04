@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>物流小智識 | 拆拖櫃服務</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('images/web-image.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      font-family: "Microsoft JhengHei", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* =========================
+       頂部導航列設定
+       ========================= */
+
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.96) !important;
+        padding: 12px 0;
+    }
+
+    /* 覆寫原本 .container，避免導航列變成卡片 */
+    .navbar > .container {
+        background-color: transparent;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 導航選單置中 */
+    .navbar-collapse {
+        flex-grow: 0;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* 每個導航項目的按鈕效果 */
+    .navbar .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 15px;
+        color: #2c3e50;
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid #d6e4ec;
+        border-radius: 7px;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* 滑鼠移到按鈕時 */
+    .navbar .nav-link:hover {
+        color: #ffffff;
+        background-color: #3498db;
+        border-color: #3498db;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(52, 152, 219, 0.30);
+    }
+
+    /* 點擊時 */
+    .navbar .nav-link:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    /* 首頁目前所在按鈕 */
+    .navbar .nav-link.active {
+        color: #ffffff;
+        background-color: #2c3e50;
+        border-color: #2c3e50;
+        font-weight: bold;
+    }
+
+    .navbar .nav-link.active:hover {
+        color: #ffffff;
+        background-color: #34495e;
+        border-color: #34495e;
+    }
+
+    @media (max-width: 991.98px) {
+        .navbar > .container {
+            justify-content: space-between;
+        }
+
+        .navbar-collapse {
+            width: 100%;
+        }
+
+        .navbar-nav {
+            padding-top: 12px;
+            align-items: stretch;
+        }
+
+        .navbar .nav-link {
+            width: 100%;
+        }
+    }
+
+
+
+    /* 主要內容容器 */
+    .knowledge-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .knowledge-container > h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #3498db;
+      font-size: 2em;
+    }
+
+    .knowledge-container > p {
+      margin: 12px 0 24px;
+      text-align: justify;
+    }
+
+    .section-title {
+      color: #2c3e50;
+      margin: 30px 0 15px;
+      font-size: 1.35em;
+      border-left: 4px solid #3498db;
+      padding-left: 12px;
+      font-weight: bold;
+    }
+
+    /* 表格外層：手機可橫向滑動 */
+    .table-responsive {
+      background-color: #ffffff;
+      border: 2px solid #2c3e50;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    /* 表格基本設定 */
+    .comparison-table {
+      width: 100%;
+      min-width: 850px;
+      margin-bottom: 0;
+      border-collapse: collapse;
+      background-color: #ffffff;
+    }
+
+    /* 表頭 */
+    .comparison-table thead th {
+      background-color: #2c3e50;
+      color: #ffffff;
+      border: 1px solid #6c7a89 !important;
+      padding: 14px 12px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+
+    /* 表格內容 */
+    .comparison-table tbody td {
+      border: 1px solid #aeb6bf !important;
+      padding: 13px 12px;
+      vertical-align: middle;
+      color: #333;
+      background-color: rgba(255, 255, 255, 0.98);
+    }
+
+    /* 第一欄加強辨識 */
+    .comparison-table tbody td:first-child {
+      text-align: center;
+      font-weight: bold;
+      color: #2c3e50;
+      background-color: #eaf4fb;
+      white-space: nowrap;
+    }
+
+    /* 條紋列 */
+    .comparison-table tbody tr:nth-child(even) td {
+      background-color: #f7fbfe;
+    }
+
+    .comparison-table tbody tr:nth-child(even) td:first-child {
+      background-color: #dceef9;
+    }
+
+    /* 滑鼠移到表格列時 */
+    .comparison-table tbody tr:hover td {
+      background-color: #fff8dc;
+    }
+
+    .comparison-table tbody tr:hover td:first-child {
+      background-color: #ffeaa7;
+    }
+
+    /* 補充資訊區 */
+    .note-box {
+      background-color: #fff3cd;
+      border: 1px solid #ffe69c;
+      border-left: 5px solid #f0ad4e;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 30px;
+      color: #664d03;
+    }
+
+    .note-box ul {
+      margin: 10px 0 0;
+      padding-left: 24px;
+    }
+
+    .note-box li {
+      margin: 8px 0;
+    }
+
+    .note-box li::marker {
+      color: #d68910;
+    }
+
+    @media (max-width: 768px) {
+      .knowledge-container {
+        margin: 20px 12px;
+        padding: 25px 20px;
+      }
+
+      .knowledge-container > h1 {
+        font-size: 1.6em;
+      }
+
+      .section-title {
+        font-size: 1.2em;
+      }
+
+      .comparison-table thead th,
+      .comparison-table tbody td {
+        padding: 10px 9px;
+        font-size: 0.92em;
+      }
+
+      .navbar-nav {
+        padding-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-4">
+      <div class="navbar-nav">
+        <a class="nav-link" href="index.html">創基物流公司</a>
+        <a class="nav-link" href="about_us.html">關於我們</a>        <a class="nav-link" href="booking.html">預約</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+        <a class="nav-link" href="knowledge.html">物流小智識</a>
+        <a class="nav-link" href="terms.html">條款或注意事項</a>
+		<a class="nav-link" href="contact.html">聯絡我們</a>
+      </div>
+    </div>
+	</nav>
+
+  <main class="knowledge-container">
+    <h1>物流小智識</h1>
+
+    <p>
+      以下資料可作一般參考，方便客戶在預訂服務前，先對貨櫃及中港車的基本尺寸、載重及用途有初步概念。實際可用空間及限重仍須視乎船公司、車輛實際規格、目的地限制及現場安排而定。
+    </p>
+
+    <h2 class="section-title">一、貨櫃比較表</h2>
+
+    <div class="table-responsive">
+      <table class="table comparison-table align-middle">
+        <thead>
+          <tr>
+            <th>櫃型</th>
+            <th>外尺寸<br>（長 × 闊 × 高）</th>
+            <th>內尺寸<br>（長 × 闊 × 高）</th>
+            <th>重量限制</th>
+            <th>內容體積</th>
+            <th>主要用途</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>20'GP</td>
+            <td>6.058m × 2.438m × 2.591m</td>
+            <td>約5.898m × 2.352m × 2.385m</td>
+            <td>約28噸</td>
+            <td>約33 CBM</td>
+            <td>重貨、小批量貨物</td>
+          </tr>
+
+          <tr>
+            <td>40'GP</td>
+            <td>12.192m × 2.438m × 2.591m</td>
+            <td>約12.032m × 2.352m × 2.385m</td>
+            <td>約26噸</td>
+            <td>約67 CBM</td>
+            <td>一般大批貨物</td>
+          </tr>
+
+          <tr>
+            <td>40'HQ</td>
+            <td>12.192m × 2.438m × 2.896m</td>
+            <td>約12.032m × 2.352m × 2.698m</td>
+            <td>約26噸</td>
+            <td>約76 CBM</td>
+            <td>輕泡貨、高櫃貨、體積較大貨物</td>
+          </tr>
+
+          <tr>
+            <td>20'RF</td>
+            <td>6.058m × 2.438m × 2.591m</td>
+            <td>約5.444m × 2.290m × 2.262m</td>
+            <td>約20噸</td>
+            <td>約26 CBM</td>
+            <td>冷凍貨、食品、需控溫貨物</td>
+          </tr>
+
+          <tr>
+            <td>40'RF</td>
+            <td>12.192m × 2.438m × 2.591m</td>
+            <td>約11.556m × 2.290m × 2.238m</td>
+            <td>約27噸</td>
+            <td>約55 CBM</td>
+            <td>冷凍貨、食品、需控溫貨物</td>
+          </tr>
+
+          <tr>
+            <td>45'HQ</td>
+            <td>13.716m × 2.438m × 2.896m</td>
+            <td>約13.556m × 2.352m × 2.698m</td>
+            <td>約29噸</td>
+            <td>約86 CBM</td>
+            <td>超大批量、體積較大貨物</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>補充資料：</strong>
+      <ul>
+        <li>以上貨櫃資料屬常見參考值，不同船公司及不同年份櫃體可能會略有差異。</li>
+        <li>實際裝貨體積通常會少於理論內容積，需預留卡板、間隙及裝箱空間。</li>
+        <li>20'RF、40'RF屬冷凍櫃，除關注容量外，亦要留意供電安排及溫度要求。</li>
+        <li>如貨物高度較高，40'HQ通常較40'GP更合用；如屬超大批量貨，則可考慮45'HQ，但要留意部分碼頭或航線未必接受45呎櫃。</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">二、中港車比較表</h2>
+
+    <div class="table-responsive">
+      <table class="table comparison-table align-middle">
+        <thead>
+          <tr>
+            <th>車型</th>
+            <th>車廂尺寸<br>（長 × 闊 × 高）</th>
+            <th>載重 / 容積</th>
+            <th>適合貨物</th>
+            <th>主要特點</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>3噸車</td>
+            <td>約4.2m × 2.0m × 1.8m</td>
+            <td>約1,500kg / 約15 CBM</td>
+            <td>小批量散貨、紙箱貨、樣品</td>
+            <td>靈活、常用於小批量中港運輸</td>
+          </tr>
+
+          <tr>
+            <td>5噸車</td>
+            <td>約5.2m × 2.1m × 2.0m</td>
+            <td>約3,000kg / 約20–25 CBM</td>
+            <td>中型貨物、托盤貨、一般商業貨件</td>
+            <td>最常用的中港車型之一，性價比較高</td>
+          </tr>
+
+          <tr>
+            <td>8噸車</td>
+            <td>約6.6m × 2.15m × 2.0m</td>
+            <td>約5,500–6,000kg / 約30–35 CBM</td>
+            <td>大批量普貨、整批出貨</td>
+            <td>適合較大量貨物，車廂比5噸車更長</td>
+          </tr>
+
+          <tr>
+            <td>10噸車</td>
+            <td>約7.2m × 2.3m × 2.2m</td>
+            <td>約6,500–7,000kg / 約36–45 CBM</td>
+            <td>大宗貨物、較重及較大量貨件</td>
+            <td>適合一次過出大貨，減少分車安排</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box mb-0">
+      <strong>補充資料：</strong>
+      <ul>
+        <li>不同車行及車型實際車廂尺寸、尾板安排、限重及可載板數可能略有不同，以上屬行內常見參考。</li>
+        <li>3噸、5噸、8噸、10噸車通常以車尾上落貨為主，如現場需要叉車、台位或特別工具，請於預訂時註明。</li>
+        <li>如貨物屬輕泡貨，可能先「爆方」；如屬重貨，可能先「爆重」，即未裝滿車廂已達限重。</li>
+      </ul>
+    </div>
+  </main>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

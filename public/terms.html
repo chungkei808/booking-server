@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>條款或注意事項 | 拆拖櫃服務</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('images/web-image.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      font-family: "Microsoft JhengHei", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* =========================
+       頂部導航列設定
+       ========================= */
+
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.96) !important;
+        padding: 12px 0;
+    }
+
+    /* 覆寫原本 .container，避免導航列變成卡片 */
+    .navbar > .container {
+        background-color: transparent;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 導航選單置中 */
+    .navbar-collapse {
+        flex-grow: 0;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* 每個導航項目的按鈕效果 */
+    .navbar .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 15px;
+        color: #2c3e50;
+        background-color: rgba(255, 255, 255, 0.75);
+        border: 1px solid #d6e4ec;
+        border-radius: 7px;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* 滑鼠移到按鈕時 */
+    .navbar .nav-link:hover {
+        color: #ffffff;
+        background-color: #3498db;
+        border-color: #3498db;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(52, 152, 219, 0.30);
+    }
+
+    /* 點擊時 */
+    .navbar .nav-link:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    /* 首頁目前所在按鈕 */
+    .navbar .nav-link.active {
+        color: #ffffff;
+        background-color: #2c3e50;
+        border-color: #2c3e50;
+        font-weight: bold;
+    }
+
+    .navbar .nav-link.active:hover {
+        color: #ffffff;
+        background-color: #34495e;
+        border-color: #34495e;
+    }
+
+    @media (max-width: 991.98px) {
+        .navbar > .container {
+            justify-content: space-between;
+        }
+
+        .navbar-collapse {
+            width: 100%;
+        }
+
+        .navbar-nav {
+            padding-top: 12px;
+            align-items: stretch;
+        }
+
+        .navbar .nav-link {
+            width: 100%;
+        }
+    }
+
+
+    /* 主要條款內容區 */
+    .terms-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .terms-container > h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #3498db;
+      font-size: 2em;
+    }
+
+    /* 每項條款卡片 */
+    .section-card {
+      background-color: #ffffff;
+      border: 1px solid #dfe6e9;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
+    }
+
+    .section-card h3 {
+      color: #2c3e50;
+      margin: 0 0 15px 0;
+      font-size: 1.25em;
+      border-left: 4px solid #3498db;
+      padding-left: 12px;
+    }
+
+    .section-card ul {
+      margin: 0;
+      padding-left: 25px;
+    }
+
+    .section-card li {
+      margin: 10px 0;
+      position: relative;
+    }
+
+    .section-card li::marker {
+      color: #3498db;
+    }
+
+    /* 頁首提示 */
+    .note-box {
+      background-color: #fff3cd;
+      border: 1px solid #ffe69c;
+      border-left: 5px solid #f0ad4e;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 25px;
+      color: #664d03;
+    }
+
+    @media (max-width: 768px) {
+      .terms-container {
+        margin: 20px 12px;
+        padding: 25px 20px;
+      }
+
+      .terms-container > h1 {
+        font-size: 1.6em;
+      }
+
+      .section-card {
+        padding: 18px;
+      }
+
+      .section-card h3 {
+        font-size: 1.15em;
+      }
+
+      .navbar-nav {
+        padding-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-4">
+      <div class="navbar-nav">
+        <a class="nav-link" href="index.html">創基物流公司</a>
+        <a class="nav-link" href="about_us.html">關於我們</a>        <a class="nav-link" href="booking.html">預約</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+        <a class="nav-link" href="knowledge.html">物流小智識</a>
+        <a class="nav-link" href="terms.html">條款或注意事項</a>
+		<a class="nav-link" href="contact.html">聯絡我們</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="terms-container">
+    <h1>條款或注意事項</h1>
+
+    <section class="section-card">
+      <h3>一、預訂與確認</h3>
+      <ul>
+        <li>所有預訂資料須由客戶正確填寫，包括聯絡人、電話、Email、日期、時間、地址及所需服務內容。</li>
+        <li>客戶提交預訂表單後，本公司將盡快透過WhatsApp、電話或Email聯絡客戶確認詳情；預訂須經本公司確認後方視為正式成立。</li>
+        <li>如遇特殊情況，例如大廈限制、指定上落貨時間、貨物尺寸過大、貨物不能進入升降機等，客戶須於預訂時清楚註明。</li>
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <h3>二、報價與付款</h3>
+      <ul>
+        <li>所有服務之報價將根據實際服務地點、貨物數量、貨物尺寸、櫃型、所需工具、人手安排及現場環境而定。</li>
+        <li>如服務內容於確認後有所更改，或現場情況與客戶提供資料不符，本公司有權重新報價或收取額外費用。</li>
+        <li>付款方式可包括現金、銀行轉帳、轉數快或其他雙方同意之方式，實際付款安排以確認報價時通知為準。</li>
+        <li>如有額外工具、額外人手、超時服務或其他額外安排，相關費用將另行計算。</li>
+		<li>如只使用拖櫃服務，一般情況下等候拆櫃時間: 廿尺櫃兩小時 ; 四十尺櫃三小時。逾時會有超時費用。</li>
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <h3>三、服務範圍</h3>
+      <ul>
+        <li>本公司提供之服務包括拖櫃、拆櫃及相關基本搬運安排，具體內容以客戶提交及本公司確認之服務項目為準。</li>
+        <li>如客戶需要卡板、唧車或其他工具，請於預訂時註明，以便本公司預先安排。</li>
+        <li>除非另有書面協議，服務並不包括包裝、倉存、報關、保險申請或其他未列明之附加物流服務。</li>
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <h3>四、客戶責任</h3>
+      <ul>
+        <li>客戶須確保所提供之資料真實、完整及準確，如因資料錯誤、不完整或遺漏而導致延誤、額外費用或服務受阻，本公司概不負責。</li>
+        <li>客戶須確保上落貨地點可供正常作業，包括但不限於車輛出入安排、停泊位置、升降機使用限制及大廈管理處批核。</li>
+        <li>如貨物屬易碎品、貴重品、危險品、受管制物品或任何特殊貨物，客戶須於預訂前主動申報。</li>
+        <li>如因客戶未有提前申報特殊情況而引致額外成本、延誤或無法完成服務，相關責任及費用由客戶承擔。</li>
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <h3>五、責任與賠償</h3>
+      <ul>
+        <li>本公司將以合理及專業方式提供服務，但不保證在所有情況下可完全避免貨物延誤、損壞或其他不可預見情況。</li>
+        <li>如因本公司直接疏忽而導致已申報貨物損壞，客戶應於服務完成後盡快通知本公司並提供相關證明，以便跟進處理。「每次服務之最高賠償金額不超過港幣3000元」</li>
+        <li>因以下原因引致之損失或損壞，本公司概不負責：客戶資料錯誤、包裝不當、貨物本身缺陷、未有申報特殊貨物、現場限制或第三方因素。</li>
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <h3>六、取消、更改及延誤</h3>
+      <ul>
+        <li>如客戶需要取消或更改已確認之預訂，請盡早透過WhatsApp、電話或Email通知本公司。</li>
+        <li>如客戶於服務日期前短時間內取消、更改或未能安排現場配合，本公司有權收取行政費、改期費或空車費。</li>
+        <li>如因交通擠塞、碼頭安排、大廈管理限制、天氣或其他非本公司可控制因素而導致服務延誤，本公司將盡力通知客戶並協調安排。</li>
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <h3>七、不可抗力</h3>
+      <ul>
+        <li>如因天災、暴雨、颱風、火警、交通事故、政府措施、罷工、疫情或其他不可抗力事件導致服務延誤、更改或取消，本公司不承擔因此引致之直接或間接損失。</li>
+        <li>在不可抗力情況下，本公司將盡合理努力與客戶另行協調服務安排。</li>
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <h3>八、個人資料與私隱</h3>
+      <ul>
+        <li>客戶所提供之姓名、電話、Email、地址及其他資料，將主要用於處理預訂、聯絡客戶、安排服務及跟進查詢。</li>
+        <li>除法律要求或為完成服務所必需外，本公司不會隨意向第三方披露客戶個人資料。</li>
+        <li>客戶如需查閱、更正或刪除其已提交之個人資料，可透過「聯絡我們」頁面與本公司聯絡。</li>
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <h3>九、最終決定權與爭議處理</h3>
+      <ul>
+        <li>本公司保留是否接受預訂、調整服務安排、更新報價及修改網站內容與條款之權利。</li>
+        <li>如因本服務引起任何爭議，雙方應先友好協商解決；如未能解決，則可按香港法律處理。</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
