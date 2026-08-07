@@ -198,10 +198,11 @@
     /* 表格內容 */
     .comparison-table tbody td {
       border: 1px solid #aeb6bf !important;
-      padding: 13px 12px;
+      padding: 13px 8px;
       vertical-align: middle;
       color: #333;
       background-color: rgba(255, 255, 255, 0.98);
+      white-space: nowrap; /* 新增此行：強制所有表格內容不換行 */
     }
 
     /* 第一欄加強辨識 */
@@ -210,7 +211,7 @@
       font-weight: bold;
       color: #2c3e50;
       background-color: #eaf4fb;
-      white-space: nowrap;
+      /* 這裡原本就有 white-space: nowrap，上方加入後所有 td 都會套用 */
     }
 
     /* 條紋列 */
@@ -290,10 +291,9 @@
         <a class="nav-link" href="faq.html">FAQ</a>
         <a class="nav-link" href="knowledge.html">物流小智識</a>
         <a class="nav-link" href="terms.html">條款或注意事項</a>
-		<a class="nav-link" href="contact.html">聯絡我們</a>
+<a class="nav-link" href="contact.html">聯絡我們</a>
       </div>
-    </div>
-	</nav>
+  </nav>
 
   <main class="knowledge-container">
     <h1>物流小智識</h1>
@@ -320,8 +320,8 @@
         <tbody>
           <tr>
             <td>20'GP</td>
-            <td>6.058m × 2.438m × 2.591m</td>
-            <td>約5.898m × 2.352m × 2.385m</td>
+            <td>6.05m × 2.48m × 2.59m</td>
+            <td>5.89m × 2.35m × 2.38m</td>
             <td>約28噸</td>
             <td>約33 CBM</td>
             <td>重貨、小批量貨物</td>
@@ -329,8 +329,8 @@
 
           <tr>
             <td>40'GP</td>
-            <td>12.192m × 2.438m × 2.591m</td>
-            <td>約12.032m × 2.352m × 2.385m</td>
+            <td>12.19m × 2.43m × 2.59m</td>
+            <td>12.03m × 2.35m × 2.38m</td>
             <td>約26噸</td>
             <td>約67 CBM</td>
             <td>一般大批貨物</td>
@@ -338,8 +338,8 @@
 
           <tr>
             <td>40'HQ</td>
-            <td>12.192m × 2.438m × 2.896m</td>
-            <td>約12.032m × 2.352m × 2.698m</td>
+            <td>12.19m × 2.43m × 2.89m</td>
+            <td>12.03m × 2.35m × 2.69m</td>
             <td>約26噸</td>
             <td>約76 CBM</td>
             <td>輕泡貨、高櫃貨、體積較大貨物</td>
@@ -347,8 +347,8 @@
 
           <tr>
             <td>20'RF</td>
-            <td>6.058m × 2.438m × 2.591m</td>
-            <td>約5.444m × 2.290m × 2.262m</td>
+            <td>6.05m × 2.43m × 2.59m</td>
+            <td>5.44m × 2.29m × 2.26m</td>
             <td>約20噸</td>
             <td>約26 CBM</td>
             <td>冷凍貨、食品、需控溫貨物</td>
@@ -356,8 +356,8 @@
 
           <tr>
             <td>40'RF</td>
-            <td>12.192m × 2.438m × 2.591m</td>
-            <td>約11.556m × 2.290m × 2.238m</td>
+            <td>12.19m × 2.43m × 2.59m</td>
+            <td>11.55m × 2.29m × 2.23m</td>
             <td>約27噸</td>
             <td>約55 CBM</td>
             <td>冷凍貨、食品、需控溫貨物</td>
@@ -365,8 +365,8 @@
 
           <tr>
             <td>45'HQ</td>
-            <td>13.716m × 2.438m × 2.896m</td>
-            <td>約13.556m × 2.352m × 2.698m</td>
+            <td>13.71m × 2.43m × 2.89m</td>
+            <td>13.55m × 2.35m × 2.69m</td>
             <td>約29噸</td>
             <td>約86 CBM</td>
             <td>超大批量、體積較大貨物</td>
@@ -402,7 +402,7 @@
         <tbody>
           <tr>
             <td>3噸車</td>
-            <td>約4.2m × 2.0m × 1.8m</td>
+            <td>4.2m × 2.0m × 1.8m</td>
             <td>約1,500kg / 約15 CBM</td>
             <td>小批量散貨、紙箱貨、樣品</td>
             <td>靈活、常用於小批量中港運輸</td>
@@ -410,7 +410,7 @@
 
           <tr>
             <td>5噸車</td>
-            <td>約5.2m × 2.1m × 2.0m</td>
+            <td>5.2m × 2.1m × 2.0m</td>
             <td>約3,000kg / 約20–25 CBM</td>
             <td>中型貨物、托盤貨、一般商業貨件</td>
             <td>最常用的中港車型之一，性價比較高</td>
@@ -418,7 +418,7 @@
 
           <tr>
             <td>8噸車</td>
-            <td>約6.6m × 2.15m × 2.0m</td>
+            <td>6.6m × 2.1m × 2.0m</td>
             <td>約5,500–6,000kg / 約30–35 CBM</td>
             <td>大批量普貨、整批出貨</td>
             <td>適合較大量貨物，車廂比5噸車更長</td>
@@ -426,7 +426,7 @@
 
           <tr>
             <td>10噸車</td>
-            <td>約7.2m × 2.3m × 2.2m</td>
+            <td>7.2m × 2.3m × 2.2m</td>
             <td>約6,500–7,000kg / 約36–45 CBM</td>
             <td>大宗貨物、較重及較大量貨件</td>
             <td>適合一次過出大貨，減少分車安排</td>
