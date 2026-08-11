@@ -1,7 +1,7 @@
 {
   "name": "booking-server",
   "version": "1.0.0",
-  "description": "拆拖櫃服務 - 預訂系統 (Node.js + Express + SQLite)",
+  "description": "香港拖櫃及拆櫃服務 - 預訂系統 (Node.js + Express + SQLite)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
