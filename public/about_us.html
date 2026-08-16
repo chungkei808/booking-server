@@ -197,6 +197,71 @@
                 font-size: 1.2em;
             }
         }
+
+/* 右下角浮動按鈕容器 */
+.contact-float-container {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 9999;
+}
+
+/* 80px 正方形白色底色按鈕 */
+.contact-float-btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-float-btn:hover {
+  transform: translateY(-4px);
+  border-color: #3498db;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+}
+
+.contact-float-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 圖案尺寸 */
+.contact-float-btn img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* 手機版適度縮小，避免遮擋主要內容 */
+@media (max-width: 768px) {
+  .contact-float-container {
+    right: 16px;
+    bottom: 16px;
+    gap: 10px;
+  }
+
+  .contact-float-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+  }
+
+  .contact-float-btn img {
+    width: 42px;
+    height: 42px;
+  }
+}
+
     </style>
     <link rel="icon" href="images/ck_logo1.png" type="image/png">
 </head>
@@ -241,6 +306,29 @@
 
         <hr class="divider">
     </div>
+	
+<!-- 右下角浮動聯絡按鈕群 -->
+<div class="contact-float-container">
+  <!-- 上方：WhatsApp -->
+  <a
+    href="https://wa.me/85255332485?text=拖拆櫃服務查詢"
+    class="contact-float-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="透過 WhatsApp 聯絡我們"
+    title="WhatsApp 聯絡我們">
+    <img src="images/icon_whatsapp.png" alt="WhatsApp 聯絡我們">
+  </a>
+
+  <!-- 下方：Email -->
+  <a
+    href="mailto:chungkeilogistic@gmail.com?subject=拖拆櫃服務查詢&amp;body=您好，我想查詢拖拆櫃服務。"
+    class="contact-float-btn"
+    aria-label="透過 Email 聯絡我們"
+    title="Email 聯絡我們">
+    <img src="images/icon_email.png" alt="Email 聯絡我們">
+  </a>
+</div>
 
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
