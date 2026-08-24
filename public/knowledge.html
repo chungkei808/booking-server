@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>物流小智識 | 拆拖櫃服務</title>
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <style>
     * {
@@ -344,6 +344,33 @@
     height: 42px;
   }
 }
+"/* 摺疊標題樣式 */
+.collapsible-trigger {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.collapsible-trigger:hover {
+  opacity: 0.85;
+}
+
+/* 右側小箭頭動畫 */
+.collapsible-trigger .toggle-icon {
+  font-size: 0.75em;
+  color: #3498db;
+  transition: transform 0.3s ease;
+  transform: rotate(180deg); /* 展開時朝上 */
+  padding-right: 6px;
+}
+
+/* 收起狀態時箭頭朝下 */
+.collapsible-trigger.collapsed .toggle-icon {
+  transform: rotate(0deg);
+}"
 
   </style>
      <link rel="icon" href="images/ck_logo1.png" type="image/png">
@@ -368,147 +395,176 @@
       以下資料可作一般參考，方便客戶在預訂服務前，先對貨櫃及中港車的基本尺寸、載重及用途有初步概念。實際可用空間及限重仍須視乎船公司、車輛實際規格、目的地限制及現場安排而定。
     </p>
 
-    <h2 class="section-title">一、貨櫃比較表</h2>
+<!-- ============================= -->
+<!-- 一、貨櫃比較表 -->
+<!-- ============================= -->
+<h2 
+  class="section-title collapsible-trigger collapsed" 
+  data-bs-toggle="collapse" 
+  data-bs-target="#containerTableSection" 
+  aria-expanded="false" 
+  aria-controls="containerTableSection"
+  role="button">
+  <span>一、貨櫃比較表</span>
+  <span class="toggle-icon">▼</span>
+</h2>
 
-    <div class="table-responsive">
-      <table class="table comparison-table align-middle">
-        <thead>
-          <tr>
-            <th>櫃型</th>
-            <th>外尺寸<br>（長 × 闊 × 高）</th>
-            <th>內尺寸<br>（長 × 闊 × 高）</th>
-            <th>重量限制</th>
-            <th>內容體積</th>
-            <th>主要用途</th>
-          </tr>
-        </thead>
+<div class="collapse" id="containerTableSection">
+  <div class="table-responsive">
+    <table class="table comparison-table align-middle">
+      <thead>
+        <tr>
+          <th>櫃型</th>
+          <th>外尺寸<br>（長 × 闊 × 高）</th>
+          <th>內尺寸<br>（長 × 闊 × 高）</th>
+          <th>重量限制</th>
+          <th>內容體積</th>
+          <th>主要用途</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          <tr>
-            <td>20'GP</td>
-            <td>6.05m × 2.48m × 2.59m</td>
-            <td>5.89m × 2.35m × 2.38m</td>
-            <td>約28噸</td>
-            <td>約33 CBM</td>
-            <td>重貨、小批量貨物</td>
-          </tr>
+      <tbody>
+        <tr>
+          <td>20'GP</td>
+          <td>6.05m × 2.48m × 2.59m</td>
+          <td>5.89m × 2.35m × 2.38m</td>
+          <td>約28噸</td>
+          <td>約33 CBM</td>
+          <td>重貨、小批量貨物</td>
+        </tr>
 
-          <tr>
-            <td>40'GP</td>
-            <td>12.19m × 2.43m × 2.59m</td>
-            <td>12.03m × 2.35m × 2.38m</td>
-            <td>約26噸</td>
-            <td>約67 CBM</td>
-            <td>一般大批貨物</td>
-          </tr>
+        <tr>
+          <td>40'GP</td>
+          <td>12.19m × 2.43m × 2.59m</td>
+          <td>12.03m × 2.35m × 2.38m</td>
+          <td>約26噸</td>
+          <td>約67 CBM</td>
+          <td>一般大批貨物</td>
+        </tr>
 
-          <tr>
-            <td>40'HQ</td>
-            <td>12.19m × 2.43m × 2.89m</td>
-            <td>12.03m × 2.35m × 2.69m</td>
-            <td>約26噸</td>
-            <td>約76 CBM</td>
-            <td>輕泡貨、高櫃貨、體積較大貨物</td>
-          </tr>
+        <tr>
+          <td>40'HQ</td>
+          <td>12.19m × 2.43m × 2.89m</td>
+          <td>12.03m × 2.35m × 2.69m</td>
+          <td>約26噸</td>
+          <td>約76 CBM</td>
+          <td>輕泡貨、高櫃貨、體積較大貨物</td>
+        </tr>
 
-          <tr>
-            <td>20'RF</td>
-            <td>6.05m × 2.43m × 2.59m</td>
-            <td>5.44m × 2.29m × 2.26m</td>
-            <td>約20噸</td>
-            <td>約26 CBM</td>
-            <td>冷凍貨、食品、需控溫貨物</td>
-          </tr>
+        <tr>
+          <td>20'RF</td>
+          <td>6.05m × 2.43m × 2.59m</td>
+          <td>5.44m × 2.29m × 2.26m</td>
+          <td>約20噸</td>
+          <td>約26 CBM</td>
+          <td>冷凍貨、食品、需控溫貨物</td>
+        </tr>
 
-          <tr>
-            <td>40'RF</td>
-            <td>12.19m × 2.43m × 2.59m</td>
-            <td>11.55m × 2.29m × 2.23m</td>
-            <td>約27噸</td>
-            <td>約55 CBM</td>
-            <td>冷凍貨、食品、需控溫貨物</td>
-          </tr>
+        <tr>
+          <td>40'RF</td>
+          <td>12.19m × 2.43m × 2.59m</td>
+          <td>11.55m × 2.29m × 2.23m</td>
+          <td>約27噸</td>
+          <td>約55 CBM</td>
+          <td>冷凍貨、食品、需控溫貨物</td>
+        </tr>
 
-          <tr>
-            <td>45'HQ</td>
-            <td>13.71m × 2.43m × 2.89m</td>
-            <td>13.55m × 2.35m × 2.69m</td>
-            <td>約29噸</td>
-            <td>約86 CBM</td>
-            <td>超大批量、體積較大貨物</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <tr>
+          <td>45'HQ</td>
+          <td>13.71m × 2.43m × 2.89m</td>
+          <td>13.55m × 2.35m × 2.69m</td>
+          <td>約29噸</td>
+          <td>約86 CBM</td>
+          <td>超大批量、體積較大貨物</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="note-box">
-      <strong>補充資料：</strong>
-      <ul>
-        <li>以上貨櫃資料屬常見參考值，不同船公司及不同年份櫃體可能會略有差異。</li>
-        <li>實際裝貨體積通常會少於理論內容積，需預留卡板、間隙及裝箱空間。</li>
-        <li>20'RF、40'RF屬冷凍櫃，除關注容量外，亦要留意供電安排及溫度要求。</li>
-        <li>如貨物高度較高，40'HQ通常較40'GP更合用；如屬超大批量貨，則可考慮45'HQ，但要留意部分碼頭或航線未必接受45呎櫃。</li>
-      </ul>
-    </div>
+  <div class="note-box">
+    <strong>補充資料：</strong>
+    <ul>
+      <li>以上貨櫃資料屬常見參考值，不同船公司及不同年份櫃體可能會略有差異。</li>
+      <li>實際裝貨體積通常會少於理論內容積，需預留卡板、間隙及裝箱空間。</li>
+      <li>20'RF、40'RF屬冷凍櫃，除關注容量外，亦要留意供電安排及溫度要求。</li>
+      <li>如貨物高度較高，40'HQ通常較40'GP更合用；如屬超大批量貨，則可考慮45'HQ，但要留意部分碼頭或航線未必接受45呎櫃。</li>
+    </ul>
+  </div>
+</div>
 
-    <h2 class="section-title">二、中港車比較表</h2>
 
-    <div class="table-responsive">
-      <table class="table comparison-table align-middle">
-        <thead>
-          <tr>
-            <th>車型</th>
-            <th>車廂尺寸<br>（長 × 闊 × 高）</th>
-            <th>載重 / 容積</th>
-            <th>適合貨物</th>
-            <th>主要特點</th>
-          </tr>
-        </thead>
+<!-- ============================= -->
+<!-- 二、中港車比較表 -->
+<!-- ============================= -->
+<h2 
+  class="section-title collapsible-trigger collapsed" 
+  data-bs-toggle="collapse" 
+  data-bs-target="#truckTableSection" 
+  aria-expanded="false" 
+  aria-controls="truckTableSection"
+  role="button">
+  <span>二、中港車比較表</span>
+  <span class="toggle-icon">▼</span>
+</h2>
 
-        <tbody>
-          <tr>
-            <td>3噸車</td>
-            <td>4.2m × 2.0m × 1.8m</td>
-            <td>約1,500kg / 約15 CBM</td>
-            <td>小批量散貨、紙箱貨、樣品</td>
-            <td>靈活、常用於小批量中港運輸</td>
-          </tr>
+<div class="collapse" id="truckTableSection">
+  <div class="table-responsive">
+    <table class="table comparison-table align-middle">
+      <thead>
+        <tr>
+          <th>車型</th>
+          <th>車廂尺寸<br>（長 × 闊 × 高）</th>
+          <th>載重 / 容積</th>
+          <th>適合貨物</th>
+          <th>主要特點</th>
+        </tr>
+      </thead>
 
-          <tr>
-            <td>5噸車</td>
-            <td>5.2m × 2.1m × 2.0m</td>
-            <td>約3,000kg / 約20–25 CBM</td>
-            <td>中型貨物、托盤貨、一般商業貨件</td>
-            <td>最常用的中港車型之一，性價比較高</td>
-          </tr>
+      <tbody>
+        <tr>
+          <td>3噸車</td>
+          <td>4.2m × 2.0m × 1.8m</td>
+          <td>約1,500kg / 約15 CBM</td>
+          <td>小批量散貨、紙箱貨、樣品</td>
+          <td>靈活、常用於小批量中港運輸</td>
+        </tr>
 
-          <tr>
-            <td>8噸車</td>
-            <td>6.6m × 2.1m × 2.0m</td>
-            <td>約5,500–6,000kg / 約30–35 CBM</td>
-            <td>大批量普貨、整批出貨</td>
-            <td>適合較大量貨物，車廂比5噸車更長</td>
-          </tr>
+        <tr>
+          <td>5噸車</td>
+          <td>5.2m × 2.1m × 2.0m</td>
+          <td>約3,000kg / 約20–25 CBM</td>
+          <td>中型貨物、托盤貨、一般商業貨件</td>
+          <td>最常用的中港車型之一，性價比較高</td>
+        </tr>
 
-          <tr>
-            <td>10噸車</td>
-            <td>7.2m × 2.3m × 2.2m</td>
-            <td>約6,500–7,000kg / 約36–45 CBM</td>
-            <td>大宗貨物、較重及較大量貨件</td>
-            <td>適合一次過出大貨，減少分車安排</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <tr>
+          <td>8噸車</td>
+          <td>6.6m × 2.1m × 2.0m</td>
+          <td>約5,500–6,000kg / 約30–35 CBM</td>
+          <td>大批量普貨、整批出貨</td>
+          <td>適合較大量貨物，車廂比5噸車更長</td>
+        </tr>
 
-    <div class="note-box mb-0">
-      <strong>補充資料：</strong>
-      <ul>
-        <li>不同車行及車型實際車廂尺寸、尾板安排、限重及可載板數可能略有不同，以上屬行內常見參考。</li>
-        <li>3噸、5噸、8噸、10噸車通常以車尾上落貨為主，如現場需要叉車、台位或特別工具，請於預訂時註明。</li>
-        <li>如貨物屬輕泡貨，可能先「爆方」；如屬重貨，可能先「爆重」，即未裝滿車廂已達限重。</li>
-      </ul>
-    </div>
+        <tr>
+          <td>10噸車</td>
+          <td>7.2m × 2.3m × 2.2m</td>
+          <td>約6,500–7,000kg / 約36–45 CBM</td>
+          <td>大宗貨物、較重及較大量貨件</td>
+          <td>適合一次過出大貨，減少分車安排</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box mb-0">
+    <strong>補充資料：</strong>
+    <ul>
+      <li>不同車行及車型實際車廂尺寸、尾板安排、限重及可載板數可能略有不同，以上屬行內常見參考。</li>
+      <li>3噸、5噸、8噸、10噸車通常以車尾上落貨為主，如現場需要叉車、台位或特別工具，請於預訂時註明。</li>
+      <li>如貨物屬輕泡貨，可能先「爆方」；如屬重貨，可能先「爆重」，即未裝滿車廂已達限重。</li>
+    </ul>
+  </div>
+</div>
   </main>
 
 <!-- 右下角浮動聯絡按鈕群 -->
@@ -534,6 +590,6 @@
   </a>
 </div>
 
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
